@@ -5,6 +5,8 @@ from discord.commands import slash_command
 import logging
 
 # Define a Discord cog for handling the Ticketsystem
+
+
 class Ticketsystem(commands.Cog):
     # Constructor to initialize the cog with the bot instance
     def __init__(self, bot: discord.Bot):
@@ -93,5 +95,7 @@ class Ticketsystem(commands.Cog):
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
 
 # Function to set up the cog when the bot is started
+
+
 def setup(bot: discord.Bot):
     bot.add_cog(Ticketsystem(bot))

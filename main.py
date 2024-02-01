@@ -26,6 +26,8 @@ file_handler.setFormatter(log_formatter)
 logging.getLogger().addHandler(file_handler)
 
 # Event handler for when the bot is ready
+
+
 @bot.event
 async def on_ready():
     print(f"{bot.user} is online")

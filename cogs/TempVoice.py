@@ -4,6 +4,8 @@ from discord.ext import commands
 from discord.commands import slash_command
 
 # Define a Discord cog for handling temporary voice channels
+
+
 class TemporaryVoice(commands.Cog):
     # Class variables to store temporary channels and categories
     temporary_channels = []
@@ -56,5 +58,7 @@ class TemporaryVoice(commands.Cog):
                     await before.channel.category.delete()
 
 # Function to set up the cog when the bot is started
+
+
 def setup(bot: discord.Bot):
     bot.add_cog(TemporaryVoice(bot))

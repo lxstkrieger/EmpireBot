@@ -7,6 +7,8 @@ import os
 import logging
 
 # Define WarnSystem as a Discord cog for handling warning commands
+
+
 class WarnSystem(commands.Cog):
     def __init__(self, bot):
         # Initialize the cog with necessary attributes
@@ -116,5 +118,7 @@ class WarnSystem(commands.Cog):
         self.conn.close()
 
 # Function to set up the WarnSystem cog when the bot is started
+
+
 def setup(bot):
     bot.add_cog(WarnSystem(bot))

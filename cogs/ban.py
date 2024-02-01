@@ -4,6 +4,8 @@ from discord.commands import slash_command
 import logging
 
 # Define a Discord cog for handling ban-related commands
+
+
 class Ban(commands.Cog):
     def __init__(self, bot: discord.Bot):
         self.bot = bot
@@ -40,5 +42,7 @@ class Ban(commands.Cog):
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
 
 # Function to set up the cog when the bot is started
+
+
 def setup(bot: discord.Bot):
     bot.add_cog(Ban(bot))

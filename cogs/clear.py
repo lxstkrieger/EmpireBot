@@ -5,6 +5,8 @@ from discord.commands import slash_command
 import logging
 
 # Define a Discord cog for handling clear-related commands
+
+
 class Clear(commands.Cog):
     def __init__(self, bot: discord.Bot):
         self.bot = bot
@@ -40,5 +42,7 @@ class Clear(commands.Cog):
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
 
 # Function to set up the cog when the bot is started
+
+
 def setup(bot: discord.Bot):
     bot.add_cog(Clear(bot))

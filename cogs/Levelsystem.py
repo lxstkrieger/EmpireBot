@@ -183,5 +183,7 @@ class Levelsys(commands.Cog):
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
 
 # Function to set up the cog when the bot is started
+
+
 def setup(bot):
     bot.add_cog(Levelsys(bot))
