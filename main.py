@@ -1,4 +1,3 @@
-# Import necessary modules from Discord API, OS, dotenv, and logging
 import discord
 import os
 from dotenv import load_dotenv

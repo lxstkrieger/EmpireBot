@@ -1,29 +1,41 @@
-# Import necessary modules from the Discord API and extension library
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
 import logging
+import sqlite3
+import os
 
-# Define a Discord cog for handling the Ticketsystem
+# Establish a connection to the SQLite database
+DB_path = os.path.abspath(os.getenv("DATABASE_PATH", "databases"))
+db_file = os.path.join(DB_path, 'Ticketsystem.db')
+conn = sqlite3.connect(db_file)
+cursor = conn.cursor()
+
+# Initialize the database table if it does not exist
+cursor.execute('''
+          CREATE TABLE IF NOT EXISTS ticket_permissions (
+              guild_id INTEGER,
+              user_id INTEGER,
+              support_role_name TEXT,
+              channel_id INTEGER
+          )
+          ''')
+conn.commit()
 
 
 class Ticketsystem(commands.Cog):
-    # Constructor to initialize the cog with the bot instance
     def __init__(self, bot: discord.Bot):
         self.bot = bot
 
-    # Listener that runs when the bot is ready
     @commands.Cog.listener()
     async def on_ready(self):
         logging.info(f'Cog {self.__class__.__name__} is ready.')
 
-    # Command to create a new ticket
     @slash_command(description="Create a new Ticket")
     async def createticket(self, ctx):
         try:
-            # Create a new text channel for the ticket
+            # Create a new ticket channel
             ticket_channel = await ctx.guild.create_text_channel(name=f"ticket-{ctx.author.display_name}")
-
             # Set permissions for the user in the ticket channel
             await ticket_channel.set_permissions(ctx.author, send_messages=True, read_messages=True, add_reactions=True,
                                                  embed_links=True, attach_files=True, read_message_history=True,
@@ -42,11 +54,18 @@ class Ticketsystem(commands.Cog):
                                                             external_emojis=True, manage_channels=True)
                 }
 
-                # Apply permissions to the ticket channel
                 await ticket_channel.edit(overwrites=overwrites)
 
                 # Respond with a message indicating that the ticket channel was created
                 await ctx.respond(f"Your Ticket Channel was Created. Here's Your Ticket: {ticket_channel.mention}", ephemeral=True)
+
+                # Save permissions to the database
+                cursor.execute('''
+                          INSERT INTO ticket_permissions (guild_id, user_id, support_role_name, channel_id)
+                          VALUES (?, ?, ?, ?)
+                          ''', (ctx.guild.id, ctx.author.id, "🙋🏻‍♂️Support Team🙋🏻‍♂️", ticket_channel.id))
+                conn.commit()
+
             else:
                 # Respond with an error if the 'Support Team' role is not found
                 await ctx.send("Error: Role '🙋🏻‍♂️Support Team🙋🏻‍♂️' not found. Please create the role before using the ticket system.")
@@ -58,23 +77,32 @@ class Ticketsystem(commands.Cog):
             embed.set_footer(text=f"Ticket | {ctx.author}")
             await ticket_channel.send(embed=embed)
             await ticket_channel.send(
-                f"Hello, {ctx.author.mention}! Please describe your problem as well as you can so that a 🙋🏻‍♂️Support Team🙋🏻‍♂️ can help you.")
+                f"Hello, {ctx.author.mention}! Please describe your problem so that a 🙋🏻‍♂️Support Team🙋🏻‍♂️ can help you.")
+
         except Exception as e:
             # Log any errors that occur during ticket creation
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
 
-    # Command to close a ticket (requires 'manage_channels' permission)
     @slash_command(description="Close a Ticket(Only Team Member can Use This!)")
-    @commands.has_permissions(manage_channels=True)
     async def closeticket(self, ctx):
         try:
-            # Delete the channel where the command is invoked (the ticket channel)
-            await ctx.channel.delete()
+            # Check permissions in the database before closing the ticket
+            cursor.execute('''
+                      SELECT * FROM ticket_permissions
+                      WHERE guild_id=? AND (user_id=? OR support_role_name IN (?))
+                      AND channel_id=?
+                      ''', (ctx.guild.id, ctx.author.id, "🙋🏻‍♂️Support Team🙋🏻‍♂️", ctx.channel.id))
+            result = cursor.fetchone()
+
+            if result:
+                await ctx.channel.delete()
+            else:
+                await ctx.send("You don't have the permission to close this ticket.")
+
         except Exception as e:
             # Log any errors that occur during ticket closure
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
 
-    # Command to set up the Ticketsystem (requires 'administrator' permission)
     @slash_command(description="Setup the Ticketsystem")
     @commands.has_permissions(administrator=True)
     async def setupticketsystem(self, ctx):
@@ -90,6 +118,7 @@ class Ticketsystem(commands.Cog):
             )
             setup_embed.set_footer(text=f"Embed created from {self.bot.user}")
             await ctx.send(embed=setup_embed)
+
         except Exception as e:
             # Log any errors that occur during ticket system setup
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
