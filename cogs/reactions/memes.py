@@ -27,7 +27,7 @@ class Memes(commands.Cog):
                 )
                 meme_embed.set_image(url=f"{meme_url}")
                 meme_embed.set_footer(text=f"Embed created from {self.bot.user}")
-                ctx.respond(embed=meme_embed)
+                await ctx.respond(embed=meme_embed)
             else:
                 await ctx.send('Error fetching meme.')
         except Exception as e:

@@ -34,9 +34,13 @@ async def on_ready():
 
 # Load all extensions (cogs) from the 'cogs' directory
 if __name__ == "__main__":
-    for filename in os.listdir("cogs"):
-        if filename.endswith(".py"):
-            bot.load_extension(f"cogs.{filename[:-3]}")
+    for root, dirs, files in os.walk("cogs"):
+        for filename in files:
+            if filename.endswith(".py"):
+                module_name = os.path.join(root, filename)[:-3].replace(os.path.sep, '.')
+
+                # Lade das Cog
+                bot.load_extension(module_name)
 
 # Run the bot with the specified token from the environment variable
 bot.run(os.getenv("TOKEN"))
