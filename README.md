@@ -6,9 +6,9 @@
 I'm not the best developer. I've been doing this as a hobby for a long time. I wanted my first project on GitHub to be a discord bot because I want people to have fun with it.
 The bot has:
  1. Moderation
- 2. Level-system(simple)
- 3. Warning system(simple)
- 4. Ticket-system(simple)
+ 2. Level-system(simplified)
+ 3. Warning system(simplified)
+ 4. Ticket-system(simplified)
  5. TempVoice
  6. Fun commands
  7. Tic Tac Toe

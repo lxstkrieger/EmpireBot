@@ -117,8 +117,6 @@ class WarnSystem(commands.Cog):
     def cog_unload(self):
         self.conn.close()
 
-# Function to set up the WarnSystem cog when the bot is started
-
 
 def setup(bot):
     bot.add_cog(WarnSystem(bot))
