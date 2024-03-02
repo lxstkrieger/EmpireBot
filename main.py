@@ -19,7 +19,8 @@ bot = discord.Bot(intents=intents, debug_guilds=debug_guilds)
 
 # Configure logging with a rotating file handler
 log_formatter = logging.Formatter('[%(levelname)s] %(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-file_handler = RotatingFileHandler('bot.log', maxBytes=5 * 1024 * 1024, backupCount=2)
+log_folder_path = '/etc/logs/'
+file_handler = RotatingFileHandler(log_folder_path + 'bot.log', maxBytes=5 * 1024 * 1024, backupCount=2)
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(log_formatter)
 logging.getLogger().addHandler(file_handler)
