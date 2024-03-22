@@ -127,3 +127,66 @@ de:
     options:
       member: Benutzer
       description: Wähle einen Nutzer
+  clear:
+    name: reinigen
+    description: reinige den Kanal von Nachrichten.
+    options:
+      amount: Menge
+      description: die menge an den zu löschenden Nachrichten
+  help:
+    name: hilfe
+    description: zeigt dir die Hilfe für den bot an
+  rank:
+    name: rang
+    description: zeigt dein Server-level an
+    options:
+      user: Benutzer
+      description: Wähle einen Nutzer
+  leaderboard:
+    name: Rangliste
+    description: zeigt die Server Rangliste an
+  rank_reset:
+    name: Rang zurücksetzen
+    description: Setze den Rang eines Nutzers zurück (Administrator)
+    options:
+      user: Benutzer
+      description: Wähle einen Nutzer
+  serverinfo:
+    name: serverinfo
+    description: zeigt deine Serverinfo
+  createticket:
+    name: erstelle_ticket
+    description: erstelle eine Hilfe Ticket
+  closeticket:
+    name: ticket_schließen
+    description: schließe dein Hilfe Ticket
+  setupticketsystem:
+    name: setup_ticketsystem
+    description: setup das Ticketsystem
+  tic:
+    name: tik
+    description: spiele mit jemanden Tik Tak Too im Kanal
+  timeout:
+    name: auszeit
+    description: gebe einen Nutzer eine Auszeit (Administrator)
+  userinfo:
+    name: nutzerinfo
+    description: zeige die Info eines Nutzers an
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  warn:
+    name: warnung
+    description: gib einen Nutzer eine Warnung (Administrator)
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  warnings:
+    name: warnungen
+    description: zeigt die warnungen von Nutzern
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  removewarn:
+    name: warnung_entfernen
+    description: entferne eine Warnung von einem Nutzer
