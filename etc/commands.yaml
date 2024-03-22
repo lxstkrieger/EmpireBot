@@ -1,0 +1,11 @@
+de:
+  cry:
+    name: weinen
+    description: Zeige anderen Nutzern das du weinst.
+  slap:
+    name: klatschen
+    description: Klatsch jemanden eine!
+    options:
+      member:
+        name: Benutzer
+        description: Wähle einen Nutzer
