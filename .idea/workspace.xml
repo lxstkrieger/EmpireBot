@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32da271a-ef8e-4461-adbf-a98c2aa347fb" name="Changes" comment="Error with the Bans Command and with the Unban command are Fixed.In the next commit I'm adding the Tempvoice and the Ticketsystem">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="32da271a-ef8e-4461-adbf-a98c2aa347fb" name="Changes" comment="Error with the Bans Command and with the Unban command are Fixed.In the next commit I'm adding the Tempvoice and the Ticketsystem" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
