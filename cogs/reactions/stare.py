@@ -14,7 +14,7 @@ class Stare(commands.Cog):
         logging.info(f'Cog {self.__class__.__name__} is ready.')
 
     @slash_command(description="someone is staring (at someone or something)")
-    async def stare(self, ctx):
+    async def stare(self, ctx, member: discord.Member):
         try:
             # The api query is made here
             resp = requests.get("https://nekos.best/api/v2/stare")
@@ -25,7 +25,7 @@ class Stare(commands.Cog):
             # The embed is created here. Which will later send the gif
             stare_embed = discord.Embed(
                 color=discord.Color.magenta(),
-                description=f"{ctx.author.mention} is staring"
+                description=f"{ctx.author.mention} is staring at {member.mention}"
             )
             # Here the gif(gif url) is added to the embed as an image.
             stare_embed.set_image(url=image)

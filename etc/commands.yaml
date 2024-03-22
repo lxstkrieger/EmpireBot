@@ -1,7 +1,83 @@
 de:
+  baka:
+    name: baka
+    description: baaka irgendwenn
+    options:
+      member:
+        name: Benutzer
+        description: Wähle einen Nutzer
+  blush:
+    name: schämen
+    description: du schämst dich oder?
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
   cry:
     name: weinen
     description: Zeige anderen Nutzern das du weinst.
+  dance:
+    name: tanzen
+    description: Du tanzt mit jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  hug:
+    name: umarmen
+    description: du umarmst jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  kiss:
+    name: küssen
+    description: küsse irgendjemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  kitsune:
+    name: kitsune
+    description: zeigt dir ein Bild von einem "Fuchs"
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  lurk:
+    name: lauern
+    description: sei jemanden auf der lauer
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  memes:
+    name: memes
+    description: zeigt dir memes
+  neko:
+    name: neko
+    description: zeigt dir ein Bild einer "Katze"
+  peck:
+    name: pieksen
+    description: piekse jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  poke:
+    name: schubs
+    description: schubs jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  punch:
+    name: schlag
+    description: schlage jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  shoot:
+    name: schießen
+    description: schieß auf jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  shrug:
+    name: erschrecken
+    description: Du erschreckst dich
   slap:
     name: klatschen
     description: Klatsch jemanden eine!
@@ -9,3 +85,45 @@ de:
       member:
         name: Benutzer
         description: Wähle einen Nutzer
+  sleep:
+    name: schlafen
+    description: zeige anderen das du schläfst
+  smile:
+    name: lachen
+    description: du bist am lachen
+  smug:
+    name: selbstzufrieden
+    description: du bist selbstzufrieden
+  stare:
+    name: starren
+    description: du starrst auf jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  think:
+    name: denken
+    description: Du bist am denken
+  tickle:
+    name: kitzeln
+    description: Du kitzelst jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  waifu:
+    name: waifu
+    description: zeigt dir eine "waifu"
+  wave:
+    name: winken
+    description: winke jemanden
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
+  wink:
+    member: Benutzer
+    description: Wähle einen Nutzer
+  yeet:
+    name: yeet
+    description: yeete irgendwen
+    options:
+      member: Benutzer
+      description: Wähle einen Nutzer
