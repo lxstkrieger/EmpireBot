@@ -1,7 +1,7 @@
-# Import necessary modules for Discord API, extension library, SQLite, and logging
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
+import ezcord
 import sqlite3
 import os
 import logging
@@ -9,7 +9,7 @@ import logging
 # Define WarnSystem as a Discord cog for handling warning commands
 
 
-class WarnSystem(commands.Cog):
+class WarnSystem(ezcord.Cog):
     def __init__(self, bot):
         # Initialize the cog with necessary attributes
         self.bot = bot

@@ -1,17 +1,14 @@
-# Import necessary modules for Discord API, extension library, logging, datetime, and humanfriendly
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
+import ezcord
 import logging
 import datetime
 from datetime import datetime
 import humanfriendly
 
 # Define Timeout as a Discord cog for handling timeouts
-class Timeout(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
-
+class Timeout(ezcord.Cog):
     # Listener that runs when the bot is ready
     @commands.Cog.listener()
     async def on_ready(self):

@@ -1,14 +1,11 @@
-# Import necessary modules for Discord API, extension library, logging, and slash command related components
 import discord
 from discord.ext import commands
 from discord.commands import slash_command, Option
+import ezcord
 import logging
 
 # Define Unban as a Discord cog for handling unbans
-class Unban(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
-
+class Unban(ezcord.Cog):
     # Listener that runs when the bot is ready
     @commands.Cog.listener()
     async def on_ready(self):

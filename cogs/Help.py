@@ -1,15 +1,12 @@
-# Import necessary modules from the Discord API and extension library
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
 from discord.ext.pages import Paginator, Page
+import ezcord
 import logging
 
 # Define a Discord cog for handling help-related commands
-class Help(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
-
+class Help(ezcord.Cog):
     # Listener that runs when the cog is loaded and ready
     @commands.Cog.listener()
     async def on_ready(self):

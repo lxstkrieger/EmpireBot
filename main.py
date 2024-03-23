@@ -3,11 +3,9 @@ import os
 from dotenv import load_dotenv
 import logging
 from logging.handlers import RotatingFileHandler
-import yaml
 import ezcord
-import time
 # Load environment variables from .env file
-load_dotenv()
+
 
 # Set up Discord Intents with all flags enabled
 intents = discord.Intents.all()
@@ -35,5 +33,6 @@ logging.getLogger().addHandler(file_handler)
 
 if __name__ == "__main__":
     bot.load_cogs(subdirectories=True)
+    load_dotenv()
     bot.run()
 

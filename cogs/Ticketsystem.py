@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord.commands import slash_command
 from discord.ui import button
+import ezcord
 import logging
 import sqlite3
 import os
@@ -24,9 +25,7 @@ cursor.execute('''
 conn.commit()
 
 
-class Bot(commands.Bot):
-    def __init__(self):
-        super().__init__()
+class Bot(ezcord.Bot):
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})")
@@ -59,9 +58,7 @@ class Confirm(discord.ui.View):
         self.stop()
 
 
-class Ticketsystem(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
+class Ticketsystem(ezcord.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):

@@ -1,16 +1,13 @@
 import discord
 from datetime import datetime
-
 from discord.commands import slash_command
 from discord.ext import commands
 from discord.ext.commands import MissingPermissions
+import ezcord
 import logging
 
 
-class Bans(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
-
+class Bans(ezcord.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         logging.info(f'Cog {self.__class__.__name__} is ready.')

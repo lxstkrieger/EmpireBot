@@ -1,7 +1,7 @@
-# Import necessary modules from the Discord API and extension library
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
+import ezcord
 import sqlite3
 from typing import Optional
 import os
@@ -12,7 +12,7 @@ level_roles = ["Level-5+", "Level-10+", "Level-15+"]
 level_thresholds = [5, 10, 15]
 
 # Define a Discord cog for handling the leveling system
-class Levelsys(commands.Cog):
+class Levelsys(ezcord.Cog):
     def __init__(self, bot: discord.Bot):
         self.bot = bot
         self.DB_path = os.path.abspath(os.getenv("DATABASE_PATH", "databases"))

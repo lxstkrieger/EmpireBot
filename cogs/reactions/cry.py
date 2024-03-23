@@ -1,13 +1,12 @@
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
+import ezcord
 import logging
 import requests
 
 
-class Cry(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
+class Cry(ezcord.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):

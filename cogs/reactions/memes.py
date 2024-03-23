@@ -1,14 +1,12 @@
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
+import ezcord
 import requests
 import logging
 
 
-class Memes(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
-
+class Memes(ezcord.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         logging.info(f'Cog {self.__class__.__name__} is ready.')

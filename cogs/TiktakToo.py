@@ -1,8 +1,8 @@
-# Import necessary modules for typing, Discord API, and extension library
 from typing import List
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
+import ezcord
 import logging
 
 # Define TicTacToeButton as a subclass of discord.ui.Button for TicTacToe
@@ -103,10 +103,7 @@ class TicTacToe(discord.ui.View):
 
 
 # Define TIKTAKTOE as a Discord cog for the Tic Tac Toe game
-class TIKTAKTOE(commands.Cog):
-    def __init__(self, bot: discord.Bot):
-        self.bot = bot
-
+class TIKTAKTOE(ezcord.Cog):
     # Listener that runs when the bot is ready
     @commands.Cog.listener()
     async def on_ready(self):

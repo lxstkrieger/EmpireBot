@@ -1,12 +1,12 @@
-# Import necessary modules from the Discord API and extension library
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
+import ezcord
 
 # Define a Discord cog for handling temporary voice channels
 
 
-class TemporaryVoice(commands.Cog):
+class TemporaryVoice(ezcord.Cog):
     # Class variables to store temporary channels and categories
     temporary_channels = []
     temporary_categories = []
