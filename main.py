@@ -5,6 +5,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import yaml
 import ezcord
+import time
 # Load environment variables from .env file
 load_dotenv()
 
@@ -19,13 +20,6 @@ debug_guilds = [int(guild_id) for guild_id in debug_guilds_env.split(',') if gui
 # Create a Discord Bot instance with specified intents and debug guilds
 bot = ezcord.Bot(intents=intents, debug_guilds=debug_guilds)
 
-with open(os.path.abspath("languages/commands.yaml"), encoding="utf-8") as file:
-    commands = yaml.safe_load(file)
-    print(commands)
-
-
-
-
 
 # Configure logging with a rotating file handler
 log_formatter = logging.Formatter('[%(levelname)s] %(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -39,23 +33,7 @@ file_handler.setFormatter(log_formatter)
 logging.getLogger().addHandler(file_handler)
 
 
-
-
-
-# Event handler for when the bot is ready
-@bot.event
-async def on_ready():
-    print(f"{bot.user} is online")
-    logging.info(f'Logged in as {bot.user.name} ({bot.user.id})')
-
-
-
-
-# Load all extensions (cogs) from the 'cogs' directory
 if __name__ == "__main__":
     bot.load_cogs(subdirectories=True)
-    bot.run(os.getenv("TOKEN"))
-
-
-# Run the bot with the specified token from the environment variable
+    bot.run()
 
