@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32da271a-ef8e-4461-adbf-a98c2aa347fb" name="Changes" comment="Error with the Bans Command and with the Unban command are Fixed.In the next commit I'm adding the Tempvoice and the Ticketsystem">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/etc/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/de.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/de.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/de.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/languages/commands.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/etc/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +81,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Olive\Documents\DiscordBot\languages" />
       <recent name="C:\Users\Olive\Documents\DiscordBot" />
       <recent name="C:\Users\Olive\Documents\DiscordBot\etc" />
       <recent name="C:\Users\Olive\Documents\DiscordBot\cogs\reactions" />
