@@ -17,7 +17,7 @@ debug_guilds = [int(guild_id) for guild_id in debug_guilds_env.split(',') if gui
 
 # Create a Discord Bot instance with specified intents and debug guilds
 bot = ezcord.Bot(intents=intents, debug_guilds=debug_guilds)
-bot.add_help_command()
+
 
 
 # Configure logging with a rotating file handler

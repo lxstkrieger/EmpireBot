@@ -52,6 +52,7 @@ class Help(ezcord.Cog):
                                        .add_field(name="hug command", value=" Hug a User  ``` /hug <@Member>```", inline=False)
                                        .add_field(name="punch command", value=" Punch a User  ``` /punch <@Member>```", inline=False)
                                        .add_field(name="kiss command", value=" Kiss a User  ``` /kiss <@Member>```", inline=False)
+                                       .add_field(name="kitsune command", value=" you are a Kitsune(Fox)  ``` /kiss <@Member>```", inline=False)
                                        .add_field(name="sleep command", value=" You are sleeping  ``` /sleep ```", inline=False)
                                        .add_field(name="slap command", value=" Slap a User  ``` /slap <@Member>```", inline=False)
                                        .add_field(name="tic tac toe command", value=" play tic tac toe with someone  ``` /tic``", inline=False)
@@ -59,18 +60,21 @@ class Help(ezcord.Cog):
                                        .add_field(name="cry command", value=" you are crying ``` /cry ```",inline=False)
                                        .add_field(name="dance command", value=" you are dancing ``` /dance ```", inline=False)
                                        .add_field(name="lurk command", value=" you lurk ``` /lurk ```", inline=False)
-                                       .add_field(name="peck command", value=" you peck him/her ``` /peck ```", inline=False)
-                                       .add_field(name="pocke command", value=" pocke him/her ``` /pocke ```", inline=False)
-                                       .add_field(name="shoot command", value=" shoot at him/her ``` /shoot ```", inline=False)
-                                       .add_field(name="shrug command", value=" shrug him/her ``` /shrug ```", inline=False)
+                                       .add_field(name="peck command", value=" you peck someone ``` /peck ```", inline=False)
+                                       .add_field(name="poke command", value=" pocke someone ``` /pocke ```", inline=False)
+                                       .add_field(name="shoot command", value=" shoot at someone ``` /shoot ```", inline=False)
+                                       .add_field(name="shrug command", value=" shrug someone ``` /shrug ```", inline=False)
                                        .add_field(name="smile command", value=" smile ``` /smile ```", inline=False)
-                                       .add_field(name="smug command", value=" smug him/her ``` /smug ```", inline=False)
-                                       .add_field(name="stare command", value=" stare at him/her ``` /stare ```", inline=False)
+                                       .add_field(name="smug command", value=" smug someone ``` /smug ```", inline=False)
+                                       .add_field(name="stare command", value=" stare at someone ``` /stare ```", inline=False)
                                        .add_field(name="think command", value=" think about it ``` /think ```", inline=False)
-                                       .add_field(name="tickle command", value=" tickle him/her ``` /tickle ```", inline=False)
+                                       .add_field(name="tickle command", value=" tickle someone ``` /tickle ```", inline=False)
                                        .add_field(name="wave command", value=" wave to someone ``` /wave ```", inline=False)
-                                       .add_field(name="wink command", value=" wick to him/her ``` /wink ```", inline=False)
-                                       .add_field(name="yeet command", value=" yeet him/her ``` /yeet ```", inline=False)
+                                       .add_field(name="wink command", value=" wick to someone ``` /wink ```", inline=False)
+                                       .add_field(name="waifu command", value=" sends Waifu Images ``` /wink ```", inline=False)
+                                       .add_field(name="yeet command", value=" yeet someone ``` /yeet ```", inline=False)
+                                       .add_field(name="memes command", value=" sending Memes ``` /meme ```", inline=False)
+                                       .add_field(name="neko command", value=" sending Neko Images ``` /neko ```", inline=False)
                                        .set_thumbnail(url=ctx.guild.icon)
                                        .set_footer(text=f"Embed created from {self.bot.user}")
                     ],
@@ -108,20 +112,6 @@ class Help(ezcord.Cog):
                                       ).add_field(name="Lock Voice Command", value=" Locking the Voice Channel  ``` /lock```", inline=False)
                                        .set_thumbnail(url=ctx.guild.icon)
                                        .set_footer(text=f"Embed created from {self.bot.user}")
-                    ],
-                ),
-                Page(
-                    embeds=[
-                        discord.Embed(title="Music Commands",
-                                      color=discord.Color.magenta(),
-                                      ).add_field(name="Play music command", value=" playing the music  ``` /play <url>```", inline=False)
-                                       .add_field(name="Skip music command", value=" skip's the music  ``` /skip```", inline=False)
-                                       .add_field(name="Pause's music command", value=" pause's the music  ``` /pause```", inline=False)
-                                       .add_field(name="Stop music command", value=" stop's the music  ``` /stop```", inline=False)
-                                       .add_field(name="Resume music command", value=" resume's the music  ``` /resume```", inline=False)
-                                       .add_field(name="queue command", value=" shows the active music queue  ``` /queue```", inline=False)
-                                       .set_footer(text=f"Embed created from {self.bot.user}")
-                        .set_thumbnail(url=ctx.guild.icon)
                     ],
                 ),
             ]
