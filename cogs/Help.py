@@ -46,7 +46,7 @@ class Help(ezcord.Cog):
                 ),
                 Page(
                     embeds=[
-                        discord.Embed(title="Fun Commands",
+                        discord.Embed(title="Fun Commands Part 1",
                                       color=discord.Color.magenta(),
                                       ).add_field(name="baka command", value=" A User is a BAKA  ``` /baka <@Member>```", inline=False)
                                        .add_field(name="hug command", value=" Hug a User  ``` /hug <@Member>```", inline=False)
@@ -62,7 +62,15 @@ class Help(ezcord.Cog):
                                        .add_field(name="lurk command", value=" you lurk ``` /lurk ```", inline=False)
                                        .add_field(name="peck command", value=" you peck someone ``` /peck ```", inline=False)
                                        .add_field(name="poke command", value=" pocke someone ``` /pocke ```", inline=False)
-                                       .add_field(name="shoot command", value=" shoot at someone ``` /shoot ```", inline=False)
+                                       .set_thumbnail(url=ctx.guild.icon)
+                                       .set_footer(text=f"Embed created from {self.bot.user}")
+                    ],
+                ),
+                Page(
+                    embeds=[
+                        discord.Embed(title="Fun Commands Part 2",
+                                      color=discord.Color.magenta(),
+                                      ).add_field(name="shoot command", value=" shoot at someone ``` /shoot ```", inline=False)
                                        .add_field(name="shrug command", value=" shrug someone ``` /shrug ```", inline=False)
                                        .add_field(name="smile command", value=" smile ``` /smile ```", inline=False)
                                        .add_field(name="smug command", value=" smug someone ``` /smug ```", inline=False)
@@ -75,8 +83,8 @@ class Help(ezcord.Cog):
                                        .add_field(name="yeet command", value=" yeet someone ``` /yeet ```", inline=False)
                                        .add_field(name="memes command", value=" sending Memes ``` /meme ```", inline=False)
                                        .add_field(name="neko command", value=" sending Neko Images ``` /neko ```", inline=False)
-                                       .set_thumbnail(url=ctx.guild.icon)
-                                       .set_footer(text=f"Embed created from {self.bot.user}")
+                        .set_thumbnail(url=ctx.guild.icon)
+                        .set_footer(text=f"Embed created from {self.bot.user}")
                     ],
                 ),
 
