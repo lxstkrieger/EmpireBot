@@ -7,6 +7,9 @@ from typing import Optional
 import os
 import logging
 
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+
 # If you want to give roles to the user at any specific level upgrade, add them here
 level_roles = ["Level-5+", "Level-10+", "Level-15+"]
 level_thresholds = [5, 10, 15]
@@ -20,7 +23,6 @@ class Levelsys(ezcord.Cog):
         self.conn = sqlite3.connect(db_file)
         self.cursor = self.conn.cursor()
 
-        # Create the levels table in the database if it does not exist
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS levels (
                 guild_id INTEGER,
@@ -32,34 +34,34 @@ class Levelsys(ezcord.Cog):
         ''')
         self.conn.commit()
 
-    # Listener that runs when a message is sent
+    def __del__(self):
+        self.conn.commit()
+        self.conn.close()
+
     @commands.Cog.listener()
     async def on_message(self, message):
         if not message.author.bot:
             guild_id = message.guild.id
             user_id = message.author.id
 
-            # Check if the user exists in the database, and if not, insert them with initial values
             self.cursor.execute('''
                 INSERT OR IGNORE INTO levels (guild_id, user_id, xp, level)
                 VALUES (?, ?, 0, 1)
             ''', (guild_id, user_id))
 
-            # Increment the user's XP
             self.cursor.execute('''
                 UPDATE levels SET xp = xp + ? WHERE guild_id = ? AND user_id = ?
             ''', (25, guild_id, user_id))
 
-            # Get current XP and level
+            self.conn.commit()  # Commit changes here
+
             self.cursor.execute('''
                 SELECT xp, level FROM levels WHERE guild_id = ? AND user_id = ?
             ''', (guild_id, user_id))
 
             xp, level = self.cursor.fetchone()
 
-            # Check if the user leveled up
             if xp >= level * 100:
-                # Update the user's XP and level, and give roles if necessary
                 self.cursor.execute('''
                     UPDATE levels SET xp = 0, level = level + 1
                     WHERE guild_id = ? AND user_id = ?
@@ -69,19 +71,15 @@ class Levelsys(ezcord.Cog):
                     if level + 1 == level_thresholds[i]:
                         await self.check_and_assign_role(message.guild, message.author, level_roles[i])
 
-                # Commit changes to the database
-                self.conn.commit()
+                self.conn.commit()  # Commit changes here
 
-    # Helper function to check and assign a role to a user
     async def check_and_assign_role(self, guild, user, role_name):
         try:
-            # Check if the role exists, otherwise create it
             role = discord.utils.get(guild.roles, name=role_name)
             if not role:
                 permissions = discord.Permissions(send_messages=True, read_messages=True)
                 role = await guild.create_role(name=role_name, permissions=permissions)
 
-            # Add the role to the user
             await user.add_roles(role)
         except Exception as e:
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
@@ -183,7 +181,5 @@ class Levelsys(ezcord.Cog):
             logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
 
 # Function to set up the cog when the bot is started
-
-
 def setup(bot):
     bot.add_cog(Levelsys(bot))
