@@ -1,15 +1,10 @@
 import discord
-from discord.ext import commands
 from discord.commands import slash_command
 import ezcord
-import logging
 import requests
 
 
 class Baka(ezcord.Cog):
-    @commands.Cog.listener()
-    async def on_ready(self):
-        logging.info(f'Cog {self.__class__.__name__} is ready.')
 
     @slash_command(description="Bakaing someone xD")
     async def baka(self, ctx, member: discord.Member):

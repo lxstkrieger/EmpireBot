@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands
 from discord.commands import slash_command
 import ezcord
-import logging
 
 # Define TicTacToeButton as a subclass of discord.ui.Button for TicTacToe
 class TicTacToeButton(discord.ui.Button["TicTacToe"]):
@@ -104,20 +103,11 @@ class TicTacToe(discord.ui.View):
 
 # Define TIKTAKTOE as a Discord cog for the Tic Tac Toe game
 class TIKTAKTOE(ezcord.Cog):
-    # Listener that runs when the bot is ready
-    @commands.Cog.listener()
-    async def on_ready(self):
-        logging.info(f'Cog {self.__class__.__name__} is ready.')
-
     # Slash command to initiate the Tic Tac Toe game
     @slash_command()
     async def tic(self, ctx: commands.Context):
-        try:
-            # Send a message to start the Tic Tac Toe game
-            await ctx.send("Tic Tac Toe: X goes first", view=TicTacToe(), reference=ctx.message)
-        except Exception as e:
-            # Log any errors that occur during the Tic Tac Toe game initiation
-            logging.error(f'An error occurred in {self.__class__.__name__}: {e}', exc_info=True)
+        # Send a message to start the Tic Tac Toe game
+        await ctx.send("Tic Tac Toe: X goes first", view=TicTacToe(), reference=ctx.message)
 
 
 # Function to set up the Tic Tac Toe cog when the bot is started

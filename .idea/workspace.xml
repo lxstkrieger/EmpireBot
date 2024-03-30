@@ -6,8 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="32da271a-ef8e-4461-adbf-a98c2aa347fb" name="Changes" comment="Error with the Bans Command and with the Unban command are Fixed.In the next commit I'm adding the Tempvoice and the Ticketsystem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Ban.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Ban.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Bans.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Bans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Clear.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Clear.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/CryptoPrices.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Help.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Help.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Kick.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Kick.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/Levelsystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Levelsystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/Warnsystem.db" beforeDir="false" afterPath="$PROJECT_DIR$/databases/Warnsystem.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Serverinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Serverinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/TempVoice.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/TempVoice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Ticketsystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Ticketsystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/TiktakToo.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/TiktakToo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Timeout.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Timeout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Unban.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Unban.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Userinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Userinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/Warnsystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/Warnsystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/baka.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/baka.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/blush.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/blush.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/cry.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/cry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/dance.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/dance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/hug.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/hug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/kiss.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/kiss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/kitsune.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/kitsune.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/lurk.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/lurk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/memes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/memes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/neko.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/neko.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/peck.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/peck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/poke.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/poke.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/reactions/punch.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/reactions/punch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/Levelsystem.db" beforeDir="false" afterPath="$PROJECT_DIR$/databases/Levelsystem.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
