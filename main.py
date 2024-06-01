@@ -20,7 +20,11 @@ bot = ezcord.Bot(intents=intents, debug_guilds=debug_guilds)
 
 # Configure logging with a rotating file handler
 log_formatter = logging.Formatter('[%(levelname)s] %(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+<<<<<<< HEAD
 log_folder_path = "/etc/logs"
+=======
+log_folder_path = "../etc/logs"
+>>>>>>> 71aec0c (Initial commit)
 if not os.path.exists(log_folder_path):
     os.makedirs(log_folder_path)
 

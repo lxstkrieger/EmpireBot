@@ -16,7 +16,10 @@ class Clear(ezcord.Cog):
 
         # Purge messages in the channel up to the specified amount
         await ctx.channel.purge(limit=amount)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71aec0c (Initial commit)
         # Create an Embed to announce the cleared messages, including a thumbnail with a gif
         clear_embed = discord.Embed(
             title=f"{amount} Messages got purged",
