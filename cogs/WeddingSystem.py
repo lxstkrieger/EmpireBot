@@ -1,54 +1,39 @@
 import discord
 from discord.ext import commands
-from discord.commands import slash_command
-import ezcord
 import sqlite3
-import os
 
-DB_path = os.path.abspath(os.getenv("DATABASE_PATH", "databases"))
-db_file = os.path.join(DB_path, 'Wedding.db')
-conn = sqlite3.connect(db_file)
-cursor = conn.cursor()
+class WeddingSystem(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
 
-# Initialize the database table if it does not exist
-cursor.execute('''
-          CREATE TABLE IF NOT EXISTS wedding_system (
-              guild_id INTEGER,
-              user_id INTEGER,
-              partner_id INTEGER,
-              married BOOLEAN,
-          )
-          ''')
-conn.commit()
-class WeddingSystem(ezcord.Cog):
     async def marry(self, ctx, user: discord.Member):
-        conn = sqlite3.connect('Wedding.db')  # Connect to your database
+        conn = sqlite3.connect('Wedding.db')
         cursor = conn.cursor()
 
-        # Check whether the author is already married
+        # Check whether the author is already married on this server
         cursor.execute('''
             SELECT * FROM wedding_system
-            WHERE user_id = ? AND married = ?
-        ''', (ctx.author.id, True))
+            WHERE user_id = ? AND married = ? AND guild_id = ?
+        ''', (ctx.author.id, True, ctx.guild.id))
         author_married = cursor.fetchone()
 
-        # Check whether the other user is already married
+        # Check whether the other user is already married on this server
         cursor.execute('''
             SELECT * FROM wedding_system
-            WHERE partner_id = ? AND married = ?
-        ''', (user.id, True))
+            WHERE partner_id = ? AND married = ? AND guild_id = ?
+        ''', (user.id, True, ctx.guild.id))
         user_married = cursor.fetchone()
 
         if author_married:
             not_marry = discord.Embed(
-                color= discord.Color.red(),
-                description=f"{ctx.author.mention}, you are already married!")
-            await ctx.response(embed=not_marry, ephemeral=True)
+                color=discord.Color.red(),
+                description=f"{ctx.author.mention}, you are already married on this server!")
+            await ctx.send(embed=not_marry)
         elif user_married:
             not_marry2 = discord.Embed(
-                color= discord.Color.red(),
-                description=f"{user.mention} is already married!")
-            await ctx.response(embed=not_marry2, ephemeral=True)
+                color=discord.Color.red(),
+                description=f"{user.mention} is already married on this server!")
+            await ctx.send(embed=not_marry2)
         else:
             cursor.execute('''
                 INSERT INTO wedding_system (guild_id, user_id, partner_id, married)
@@ -57,47 +42,45 @@ class WeddingSystem(ezcord.Cog):
             conn.commit()
             marry_embed = discord.Embed(
                 color=discord.Color.green(),
-                description=f"Congratulations {ctx.author.mention} and {user.mention}, are now married!")
-            marry_embed.set_footer(text=f"Embed created from {self.bot.user}")
+                description=f"Congratulations {ctx.author.mention} and {user.mention}, you are now married on this server!")
+            marry_embed.set_footer(text=f"Embed created by {self.bot.user}")
 
-            await ctx.response(embed=marry_embed,ephemeral=False)
+            await ctx.send(embed=marry_embed)
         conn.close()
 
     async def devorce(self, ctx, user: discord.Member):
-        conn = sqlite3.connect('Wedding.db')  # Connect to your database
+        conn = sqlite3.connect('Wedding.db')
         cursor = conn.cursor()
 
-        # Check if the author is married to the specified user
+        # Check if the author is married to the specified user on this server
         cursor.execute('''
             SELECT * FROM wedding_system
-            WHERE (user_id = ? AND partner_id = ?) OR (user_id = ? AND partner_id = ?)
-            AND married = ?
-        ''', (ctx.author.id, user.id, user.id, ctx.author.id, True))
+            WHERE ((user_id = ? AND partner_id = ?) OR (user_id = ? AND partner_id = ?))
+            AND married = ? AND guild_id = ?
+        ''', (ctx.author.id, user.id, user.id, ctx.author.id, True, ctx.guild.id))
         marriage = cursor.fetchone()
 
         if marriage:
             cursor.execute('''
                 DELETE FROM wedding_system
-                WHERE (user_id = ? AND partner_id = ?) OR (user_id = ? AND partner_id = ?)
-                AND married = ?
-            ''', (ctx.author.id, user.id, user.id, ctx.author.id, True))
+                WHERE ((user_id = ? AND partner_id = ?) OR (user_id = ? AND partner_id = ?))
+                AND married = ? AND guild_id = ?
+            ''', (ctx.author.id, user.id, user.id, ctx.author.id, True, ctx.guild.id))
             conn.commit()
             divorce_embed = discord.Embed(
                 color=discord.Color.green(),
-                description=f"{ctx.author.mention} and {user.mention}, you are now divorced.")
+                description=f"{ctx.author.mention} and {user.mention}, you are now divorced on this server.")
             divorce_embed.set_footer(text=f"Embed created by {self.bot.user}")
 
-            await ctx.response.send_message(embed=divorce_embed, ephemeral=False)
+            await ctx.send(embed=divorce_embed)
         else:
             not_divorce = discord.Embed(
                 color=discord.Color.red(),
-                description=f"{ctx.author.mention}, you are not married to {user.mention}.")
-            await ctx.response.send_message(embed=not_divorce, ephemeral=True)
+                description=f"{ctx.author.mention}, you are not married to {user.mention} on this server.")
+            await ctx.send(embed=not_divorce)
 
         conn.close()
 
 
-
-
-def setup(bot: discord.Bot):
+def setup(bot):
     bot.add_cog(WeddingSystem(bot))
